@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>Lab2</title>
+</head>
+
+<body>
+    <h1>Add Product</h1>
+    <form action="/product/add" method="post">
+        <input type="number" name="prodId" placeholder="Product id">
+        <input type="text" name="name" placeholder="Product name">
+        <input type="text" name="desc" placeholder="Product description">
+        <input type="number" name="price" placeholder="Product price">
+        <input type="submit" value="Add product">
+    </form>
+
+    <h1>Products</h1>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+        </tr>
+        <tr th:each="p:${products}">
+            <th th:text="${p.getId}">0</th>
+            <th th:text="${p.getName}">testProduct</th>
+            <th th:text="${p.getDescription}">This is for testing html</th>
+            <th th:text="${p.getPrice}">123</th>
+        </tr>
+    </table>
+</body>
+
+</html>
